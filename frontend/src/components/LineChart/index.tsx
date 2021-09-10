@@ -1,6 +1,7 @@
 
 import Chart from "react-apexcharts";
 
+
 const LineChart = () => {
 
     const state = {
@@ -9,7 +10,9 @@ const LineChart = () => {
             chart: {
                 id: "basic-bar",
                 fontFamily: 'Helvetica, Arial, sans-serif',
-                colors: ['#546E7A', '#E91E63']
+                zoom: {
+                    enabled: true
+                },
             },
             xaxis: {
                 categories: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun']
@@ -20,13 +23,19 @@ const LineChart = () => {
         series: [
             {
                 name: "Visitados",
-                data: [168, 355, 197, 201, 244, 169]
+                data: [168, 355, 197, 201, 244, 169],
+                borderWidth:1,
+                backgroundColor:['#546E7A'],
             },
+
             {
                 name: "Fechados",
-                data: [118, 305, 147, 200, 204, 149]
+                data: [118, 305, 147, 200, 204, 149],
+                borderWidth:1,
+                backgroundColor:['#E91E63'],
             }
-        ]
+        ],
+        color:['#546E7A']
     };
 
     return (
@@ -34,8 +43,8 @@ const LineChart = () => {
             options={state.options}
             series={state.series}
             type="line"
-            height="240"
-            width="400"
+            height="220"
+            //width="400"
 
         />
     );
